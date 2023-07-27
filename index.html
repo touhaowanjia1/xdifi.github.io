@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <link rel="canonical" href="https://wtftx.com">
+
+
+    <title>WTFtx: Decode zkSync Transaction</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://wtftx.com/static/css/custom.css">
+</head>
+
+<body>
+    <header>
+        <div class="container d-flex flex-column align-items-center">
+            <a href="https://wtftx.com/"><img src="icon.png" alt="Logo" class="my-4" width="64px" height="64px"></a>
+            <h1>Decode WTF Transaction</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container d-flex flex-column align-items-center">
+            <!-- Form -->
+            <form id="myForm" onsubmit="event.preventDefault(); decodeTransaction();" class="custom-form mb-4 w-100" style="max-width: 500px;">
+                <div class="form-group">
+                    <label for="rpcProvider">RPC Provider:</label>
+                    <input type="text" id="rpcProvider" name="rpcProvider" value="https://mainnet.era.zksync.io"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="txHash">Transaction Hash:</label>
+                    <input type="text" id="txHash" name="txHash" class="form-control"
+                        value="0xb91739d318aaf8512f93d28ac3c404a7271c6cb48a21736a7460094043400c0e">
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" id="decodeButton" class="btn btn-success btn-lg">Decode Transaction</button>
+                </div>
+            
+            </form>
+
+            <h2>Decoded Transaction</h2>
+            
+            <!-- <pre id="decodedTransaction" class="border p-2 rounded bg-light text-dark"></pre> -->
+            
+            <div id="decodedTransaction" class="border p-2 rounded bg-light text-dark"></div>
+
+            
+            <h2 class="mt-4">Generated Code <button id="copyButton" class="btn btn-info btn-sm"
+                    data-clipboard-target="#output">Copy</button></h2>
+            
+            <pre><code id="output" class="border p-2 rounded bg-light text-dark python"></code></pre>
+
+            <!-- Other content -->
+            <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert" style="position: fixed; bottom: 0; right: 0; display: none;">
+                <span id="alert-message"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- popup when it fails -->
+            <div id="failure-alert" class="alert alert-warning alert-dismissible fade show" role="alert"
+                style="position: fixed; bottom: 0; right: 0; display: none;">
+                <span id="failure-alert-message"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="mt-auto py-2 footer mb-1">
+        <div class="container text-center">
+            <span class="text-muted">© 2023 WTFtx | by <a href="https://twitter.com/gm365" title="Titter: gm365">@gm365</a>
+                & GTP4 | <a href="https://debank.com/profile/0x1234231bf85ed357f3cb795b580a1953d56f0856"
+                    target="_blank" rel="nofollow" title="Donation Address">👉 ❤️ ☕️ Donate</a> | Last Update: 2023.07.24 
+            </span>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="static/js/main.js"></script>
+    <script src="static/js/utils.js"></script>
+
+    
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a45582d9e04d49efbf876024c0bc9d2d"}'></script><!-- Cloudflare Pages Analytics --></body>
+
+</html>
